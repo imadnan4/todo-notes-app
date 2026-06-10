@@ -2,9 +2,9 @@ import express from 'express';
 import cors from 'cors'
 import morgan from 'morgan'
  
-import authRoutes from './routes/auth.routes.js'
-import notesRoutes from './routes/notes.routes.js'
-import errorHandler from './middleware/error.middleware.js'
+import authRoutes from '../routes/auth.routes.js'
+import notesRoutes from '../routes/notes.routes.js'
+import errorHandler from '../middleware/error.middleware.js'
 
 
 // initalize express app
