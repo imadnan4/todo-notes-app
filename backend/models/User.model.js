@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema(
             required : [true, "Password is Required"],
             minlength : [6, "Password should be at least 6 characters"] 
         },
-        timestamp: true
-    }
+    },
+    {timestamps: true}
 )
 
 userSchema.pre('save', async function(next) {
