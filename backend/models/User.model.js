@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-import bycrpt, { compare } from "bcryptjs"
-import { request } from "express";
-import { Timestamp } from "mongodb";
+import bycrpt from "bcryptjs"
 
 
 const userSchema = new mongoose.Schema(
@@ -27,15 +25,15 @@ const userSchema = new mongoose.Schema(
     {timestamps: true}
 )
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
     if(!this.isModified('password')) return next()
         this.password = await bycrpt.hash(this.password, 12)
         next()
 })
 
 
-userSchema.method.comparePassword = async function (candidate) {
-    return bycrpt.compare(compare, this.password)
+userSchema.methods.comparePassword = async function (candidatePassword) {
+    return bycrpt.compare(candidatePassword, this.password)
 }
 
 export default mongoose.model('User', userSchema)

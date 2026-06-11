@@ -12,7 +12,6 @@ export const getNotes = async (req, res, next) => {
 }
 
 // POST /api/notes
-
 export const createNote = async (req, res, next) => {
     try {
         const { title, content, tags } = req.body
@@ -34,7 +33,7 @@ export const createNote = async (req, res, next) => {
 export const getNote = async (req, res, next)=>{
     try {
         const note = await Note.findOne({
-            id: req.params.id,
+            _id: req.params.id,
             user: req.user._id
         })
 
@@ -51,7 +50,7 @@ export const updateNote = async (req, res, next) => {
         const { title, content, tags } = req.body
 
         const note = await Note.findOneAndUpdate(
-            { id: req.params.id, user: req.user._id },
+            { _id: req.params.id, user: req.user._id },
             { title, content, tags },
             {
                 new: true,
@@ -67,7 +66,7 @@ export const updateNote = async (req, res, next) => {
 export const deleteNote = async (req, res, next) => {
     try {
         const note = await Note.findByIdAndDelete({
-            id: req.params.id,
+            _id: req.params.id,
             user: req.user._id
 
         })

@@ -7,14 +7,14 @@ export const protect = async (req, res , next) => {
     try{
          // Step 1 + 2: get and extract token
         const authHeader = req.headers.authorization
-        if (!authHeader || !authHeader.startWith('Bearer ')){
+        if (!authHeader || !authHeader.startsWith('Bearer ')){
             return res.status(401).json({message : 'Not Authorized, no tokens'})
         }
-        const tokens = authHeader.split(' ')[[1]]
+        const tokens = authHeader.split(' ')[1]
 
 
         // Step 3 + 4: verify and decode
-        const decoded = jwt.verify(tokens, process.env.JWT_SECRETS)
+        const decoded = jwt.verify(tokens, process.env.JWT_SECRET)
 
         // Step 5: fetch user from DB (ensures user still exists)
         const user = await User.findById(decoded.id)
