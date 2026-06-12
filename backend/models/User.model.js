@@ -28,6 +28,7 @@ userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
   this.password = await bycrpt.hash(this.password, 12);
 });
+
 userSchema.methods.comparePassword = async function (candidatePassword) {
   return bycrpt.compare(candidatePassword, this.password);
 };

@@ -1,42 +1,28 @@
 # Notes App
 
-Simple notes/todo app with separate `backend` and `frontend` folders.
+A full-stack notes application. Users can register, log in, and manage personal notes with titles, content, and tags.
 
-## Backend
+## Stack
 
-- Language: Node.js (ES Modules)
-- Server entry: `src/server.js`
+- **Backend** — Node.js, Express 5, MongoDB, JWT auth → [`backend/`](./backend/README.md)
+- **Frontend** — React 19, TypeScript, Vite, Tailwind CSS v4, shadcn/ui → [`frontend/`](./frontend/README.md)
 
-### Quick start
+## Prerequisites
+
+- Node.js v18+
+- MongoDB (local or [Atlas](https://www.mongodb.com/atlas))
+
+## Quick Start
 
 ```bash
-cd backend
-npm install
-# or to install specific deps used by this project:
-npm install express mongoose dotenv cors bcryptjs jsonwebtoken && npm install -D nodemon
-
-# copy environment template
-cp .env.template .env
-# open .env and set MONGO_URI and JWT_SECRET
-
-# start in development
+# 1. Start the backend
+cd backend && npm install && cp .env.template .env
+# fill in MONGO_URI and JWT_SECRET in .env
 npm run dev
+
+# 2. Start the frontend (new terminal)
+cd frontend && npm install && npm run dev
 ```
 
-## Environment
-
-Copy `.env.template` to `.env` and set values for:
-
-- `MONGO_URI` — your MongoDB connection string
-- `JWT_SECRET` — secret for signing JWTs
-- `PORT` — optional server port (default 5000)
-
-## What I changed / created
-
-- Added this `README.md` with setup steps.
-- Added a `.gitignore` (see repository root).
-
-## Next steps
-
-- Implement routes/controllers in `backend/controllers` and `backend/routes`.
-- Run the backend and verify `/api/health`.
+- API: `http://localhost:5000`
+- App: `http://localhost:5173`
