@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, type ReactNode } from "react"
 import { loginUser, registerUser, type AuthResponse } from "@/api/auth"
 
@@ -58,5 +59,4 @@ export function useAuth(){
     if(!ctx) throw new Error("useAuth must be used inside AuthProvider ")
         return ctx
 }
-
 
