@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { IconPlus, IconLoader2 } from "@tabler/icons-react"
 
-export function DashboardPage() {
+export default function DashboardPage() {
   const { notes, loading, error, addNote, editNote, removeNote } = useNotes()
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")

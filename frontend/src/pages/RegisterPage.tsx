@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/card"
 import { toast } from "sonner"
 
-export function RegisterPage() {
+export default function RegisterPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
